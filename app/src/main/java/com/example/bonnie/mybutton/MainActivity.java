@@ -6,28 +6,36 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            Button mButton = (Button) findViewById(R.id.my_button2);
-
-
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
 
 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-            {class MyListener implements View.OnClickListener{
+        Button mButton = (Button) findViewById(R.id.button);
+
+        {
+            class MyListener implements View.OnClickListener {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(mainActivity.this, "Hello", Toast.LENGTH_SHORT).show();
+
 
                 }
             }
-            }
+         //   MyListener theListener = new MyListener();
 
-            MyListener theListener = new MyListener();
+            mButton.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, R.string.toast_message, Toast.LENGTH_SHORT).show();
 
-            mButton.setOnClickListener(theListener);
-            }
+                }
+            });
+        }
+
+
+    }
+}
